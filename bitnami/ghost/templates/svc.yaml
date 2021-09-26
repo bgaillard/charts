@@ -9,7 +9,7 @@ metadata:
     {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
     {{- end }}
   {{- if or .Values.service.annotations .Values.commonAnnotations }}
-  annotations: 
+  annotations:
     {{- if .Values.service.annotations }}
     {{- include "common.tplvalues.render" ( dict "value" .Values.service.annotations "context" $) | nindent 4 }}
     {{- end }}
@@ -33,7 +33,7 @@ spec:
   {{- end }}
   ports:
     {{- if .Values.ghostEnableHttps }}
-    - name: https
+    - name: http
       port: {{ .Values.service.httpsPort }}
       protocol: TCP
       targetPort: https
